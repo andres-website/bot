@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	"os/exec"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/joho/godotenv"
@@ -36,6 +37,24 @@ func main() {
 
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "You wrote: "+update.Message.Text)
 			// msg.ReplyToMessageID = update.Message.MessageID
+
+			// Запуск команды Windows (.Run дожидается завершения программы (закрытия калькулятора))
+			/* 			cmd := exec.Command("calc")
+
+			   			if err := cmd.Run(); err != nil {
+			   				log.Fatal(err)
+			   			} */
+
+			// Запуск команды Windows (.Start запускает программу в фоне)
+			/*
+				https://stackoverflow.com/questions/48557810/execute-command-in-background
+			*/
+			cmd := exec.Command("calc")
+
+			if err := cmd.Start(); err != nil {
+				log.Printf("Failed to start cmd: %v", err)
+				return
+			}
 
 			bot.Send(msg)
 		}

@@ -18,3 +18,7 @@ https://www.gpg4win.org/
 
 // gpg.program
 // https://www.gnupg.org/
+
+# Git
+git pull
+git push
