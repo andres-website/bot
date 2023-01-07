@@ -6,7 +6,8 @@ func (c *Commander) Help(inputMessage *tgbotapi.Message) {
 
 	msg := tgbotapi.NewMessage(inputMessage.Chat.ID, "Тебе нужна помощь?\n"+
 		"/help - Справка\n"+
-		"/list - list products")
+		"/list - list products"+
+		"/get IDX - getting product by idx (args - id product)")
 
 	c.bot.Send(msg)
 }

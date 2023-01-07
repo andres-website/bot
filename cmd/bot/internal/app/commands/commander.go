@@ -1,6 +1,8 @@
 package commands
 
 import (
+	"log"
+
 	"github.com/andres-website/bot/cmd/bot/internal/service/product"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
@@ -25,6 +27,24 @@ func NewCommander(
 
 func (c *Commander) HandleUpdate(update tgbotapi.Update) {
 
+	// mutex := sync.Mutex{}
+	// mutex.Lock()
+
+	// defer mutex.Unlock()
+
+	// defer callMe()
+
+	defer func() {
+
+		if panicValue := recover(); panicValue != nil {
+
+			log.Printf("recovered from panic %s", panicValue)
+		}
+
+	}()
+
+	// panic("Handle Panic")
+
 	if update.Message != nil { // If we got a message
 
 		switch update.Message.Command() {
@@ -43,4 +63,8 @@ func (c *Commander) HandleUpdate(update tgbotapi.Update) {
 		}
 
 	}
+}
+
+func callMe() {
+
 }
