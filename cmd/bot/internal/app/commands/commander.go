@@ -27,26 +27,17 @@ func (c *Commander) HandleUpdate(update tgbotapi.Update) {
 
 	if update.Message != nil { // If we got a message
 
-		command, ok := registredCommands[update.Message.Command()]
-		if ok {
+		switch update.Message.Command() {
 
-			command(c, update.Message)
+		case "help":
+			c.Help(update.Message)
 
-		} else {
+		case "list":
+			c.List(update.Message)
 
+		default:
 			c.Default(update.Message)
 		}
-		/* 		switch update.Message.Command() {
-
-		   		case "help":
-		   			c.Help(update.Message)
-
-		   		case "list":
-		   			c.List(update.Message)
-
-		   		default:
-		   			c.Default(update.Message)
-		   		} */
 
 	}
 }

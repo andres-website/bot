@@ -9,8 +9,3 @@ func (c *Commander) Get(inputMessage *tgbotapi.Message) {
 
 	c.bot.Send(msg)
 }
-
-func init() {
-
-	registredCommands["get"] = (*Commander).Get
-}

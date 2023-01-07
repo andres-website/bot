@@ -26,6 +26,10 @@ https://www.gpg4win.org/
 git pull
 git push
 
+Как выйти из git log end?
+:q
+https://ru.stackoverflow.com/questions/495164/%D0%9A%D0%B0%D0%BA-%D0%B2%D1%8B%D0%B9%D1%82%D0%B8-%D0%B8%D0%B7-git-log
+
 ## Выпуск тэгов
 git tag testing_calc
 git push --tags
