@@ -9,6 +9,9 @@ make run
 # Устанавливает модули из гитхаба
 go mod tidy
 
+# Собрать бинарник
+go build ./cmd/bot/main.go
+
 # Windows soft
 GNU make
 https://www.gnu.org/software/make/

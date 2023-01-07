@@ -14,6 +14,7 @@ func main() {
 	godotenv.Load()
 
 	token := os.Getenv("TOKEN")
+	//token := "Your_token"
 
 	bot, err := tgbotapi.NewBotAPI(token)
 	if err != nil {
