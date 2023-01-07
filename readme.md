@@ -25,3 +25,14 @@ https://www.gpg4win.org/
 # Git
 git pull
 git push
+
+## Выпуск тэгов
+git tag testing_calc
+git push --tags
+
+# Библиотеки
+Переменные окружения
+github.com/joho/godotenv
+
+Telegram bot
+https://github.com/go-telegram-bot-api/telegram-bot-api
