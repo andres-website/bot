@@ -15,3 +15,8 @@ func (c *Commander) List(inputMessage *tgbotapi.Message) {
 
 	c.bot.Send(msg)
 }
+
+func init() {
+
+	registredCommands["list"] = (*Commander).List
+}
