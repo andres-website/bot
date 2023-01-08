@@ -21,6 +21,7 @@ func (c *Commander) Get(inputMessage *tgbotapi.Message) {
 	product, err := c.productService.Get(idx)
 	if err != nil {
 
+		// TODO: Про ошибку можно сказать пользователю здесь или после этого где то отдельно
 		log.Printf("Failed to get product with idx: %d: %v", idx, err)
 		return
 	}
