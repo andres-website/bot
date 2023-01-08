@@ -7,8 +7,6 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
-var registredCommands = map[string]func(c *Commander, msg *tgbotapi.Message){}
-
 type Commander struct {
 	bot            *tgbotapi.BotAPI
 	productService *product.Service
@@ -27,23 +25,15 @@ func NewCommander(
 
 func (c *Commander) HandleUpdate(update tgbotapi.Update) {
 
-	// mutex := sync.Mutex{}
-	// mutex.Lock()
-
-	// defer mutex.Unlock()
-
-	// defer callMe()
-
+	// recover after panic
 	defer func() {
 
 		if panicValue := recover(); panicValue != nil {
 
-			log.Printf("recovered from panic %s", panicValue)
+			log.Printf("recovered from panic %v", panicValue)
 		}
 
 	}()
-
-	// panic("Handle Panic")
 
 	if update.Message != nil { // If we got a message
 
@@ -63,8 +53,4 @@ func (c *Commander) HandleUpdate(update tgbotapi.Update) {
 		}
 
 	}
-}
-
-func callMe() {
-
 }
